@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Super Hero</title>
+</head>
+<body>
+<form action="#" th:action="@{/updateSuperHero/{heroId}(heroId=${Profile.heroId})}"
+th:object="${Profile}" method="post">
+ <label for="heroName">Hero Name</label>
+ <input type="text" th:field="*{heroName}" id="heroName"
+placeholder="Hero Name">
+ <span th:if="${#fields.hasErrors('heroName')}"
+th:errors="*{heroName}"></span>
+
+ <label for="superPower">Super Power</label>
+ <input type="text" th:field="*{superPower}"
+id="superPower" placeholder="Super Power">
+ <span th:if="${#fields.hasErrors('superPower')}"
+th:errors="*{superPower}"></span>
+
+ <label for="weakness">Weakness</label>
+ <input type="text" th:field="*{weakness}" id="weakness"
+placeholder="Weakness">
+ <span th:if="${#fields.hasErrors('weakness')}"
+th:errors="*{weakness}"></span>
+
+ <input type="submit" value="Update Super Hero">
+</form>
+</body>
+</html>

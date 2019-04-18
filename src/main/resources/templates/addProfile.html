@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create New Super Hero Profile</title>
+</head>
+<body>
+<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
+<form name="addForm" th:object="${newProfile}" th:action="@{/addSuperHero}" method ='POST'>
+	Hero Name: <input name="heroName" id="heroName" size="35" maxlength="50" required> <br />
+	Super Power: <input name="superPower" id="superPower" size="35" maxlength="30" required> <br />
+	Weakness: <input name="weakness" id="weakness" size="35" maxlength="30" required> <br />
+	<input name="submit" type="submit" value="submit" />
+</form>
+</body>
+</html>

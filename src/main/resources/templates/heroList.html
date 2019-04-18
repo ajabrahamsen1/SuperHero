@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Super Hero Profiles</title>
+</head>
+<body>
+<p>Super Hero Profiles</p>
+	<form>
+		<table>
+			<tr>
+				<th>Hero ID</th>
+				<th>Hero Name</th>
+				<th>Super Power</th>
+				<th>Weakness</th>
+			<tr th:each="currentProfile : ${Profiles}">
+				<td th:text="${currentProfile.heroId}" />
+				<td th:text="${currentProfile.heroName}" />
+				<td th:text="${currentProfile.superPower}" />
+				<td th:text="${currentProfile.weakness}" />
+				<td><a th:href="@{/editSuperHero/{heroId}(heroId=${currentProfile.heroId})}">Edit</a></td>
+				<td><a th:href="@{/deleteSuperHero/{heroId}(heroId=${currentProfile.heroId})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	<br /><a href="../addSuperHero">Add a new Super Hero</a>
+</body>
+</html>
